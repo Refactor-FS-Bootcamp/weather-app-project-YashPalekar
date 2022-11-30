@@ -1,0 +1,36 @@
+.sider {
+   background-color: var(--dark-gray);
+   float: left;
+   display: flex;
+   flex-direction: column;
+   width: 8rem;
+   height: 100vh;
+   box-shadow: inset -10px 0 20px -5px #00000075;
+}
+
+.items {
+   padding: 20px;
+   padding-left: 30px;
+   color: var(--orange);
+   font-size: 1.15rem;
+   font-weight: 700;
+   text-align: center;
+   border-bottom: 1px solid #4b4b4b;
+}
+
+.sider > div:hover {
+   background-color: var(--orange);
+   font-weight: 600;
+   cursor: pointer;
+}
+
+.active {
+   background-color: white;
+   color: var(--dark-gray);
+   cursor: pointer;
+   padding: 15px 20px;
+   font-size: 1.25rem;
+   font-weight: 700;
+   align-self: flex-end;
+   border-radius: 15% 0 0 15%;
+}

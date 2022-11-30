@@ -1,0 +1,11 @@
+:root {
+   --background: #fff;
+   --dark-gray: #333;
+   --orange: #ff6600
+}
+
+body {
+   margin: 0;
+   height: 100%;
+   font-size: 1.5rem;
+}
