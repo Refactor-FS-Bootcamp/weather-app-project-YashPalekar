@@ -1,0 +1,265 @@
+html {
+   box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+   box-sizing: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+   margin: 0;
+}
+
+:root {
+   --background: #fff;
+   --dark-gray: rgb(61, 61, 61);
+   --active: #ff6600;
+   --sider-width: 8rem;
+   --border-radius: 1rem
+}
+
+body {
+   margin: 0;
+   min-height: 100vh;
+   text-transform: capitalize;
+   box-sizing: border-box;
+   overflow-y: hidden;
+}
+
+.main-body, .wrapper-row {
+   display: flex;
+   flex-direction: row;
+   width: 100%;
+   height: 100%;
+}
+
+.wrapper-column {
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   height: 100%;
+}
+
+/* Sider */
+.sider {
+   background-color: var(--dark-gray);
+   display: flex;
+   flex-direction: column;
+   width: var(--sider-width);
+   height: 100vh;
+   box-shadow: inset -10px 0 20px -5px #00000075;
+}
+
+.items {
+   padding: 20px;
+   padding-left: 30px;
+   width: 8rem;
+   color: var(--active);
+   font-size: 1.15rem;
+   font-weight: 700;
+   text-align: center;
+   border-bottom: 1px solid #4b4b4b;
+   text-transform: capitalize;
+}
+
+.sider > div:hover {
+   background-color: var(--active);
+   color: white;
+   font-weight: 600;
+   cursor: pointer;
+}
+
+.active {
+   background-color: white;
+   color: var(--dark-gray);
+   cursor: pointer;
+   padding: 20px;
+   font-size: 1.25rem;
+   font-weight: 700;
+   align-self: flex-end;
+   border-radius: var(--border-radius) 0 0 var(--border-radius);
+
+}
+
+
+/* Header */
+.header {
+   display: flex;
+   width: 100%;
+   font-weight: 800;
+   font-size: 1.5rem;
+   justify-content: space-between;
+   padding: 20px 30px;
+}
+
+.header-buttons {
+   display: flex;
+   gap: 10px;
+}
+
+/* Content */
+.content {
+   margin-top: 40vh;
+   text-align: center;
+}
+
+.description {
+  padding: 20px 30px;
+}
+
+/* Card */
+.card {
+   box-shadow: 0 0 5px 0 #33333375;
+   border: 0;
+   border-radius: var(--border-radius);
+   width: max(30vw, 400px);
+   margin: 20px;
+   overflow-y: auto;
+   height: calc(100vh - 40px);
+}
+
+.big-card {
+   width: max(50vw, 600px);
+   display: none;
+}
+
+.big-card .card-body {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   height: 80%;
+}
+
+.card-header {
+   font-size: 2rem;
+   padding: 1rem;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   border-bottom: 2px solid #33333375;
+   font-weight: 600;
+   position: sticky;
+   top: 0;
+   background-color: var(--active);
+   color: var(--background);
+   cursor: pointer;
+}
+
+.card-button {
+   background-color: transparent;
+   box-sizing: content-box;
+   border: 3px solid var(--background);
+   color: var(--background);
+   width: 20px;
+   border-radius: 50px;
+   padding: 3px;
+   font-size: 1.5rem;
+   align-self: center;
+}
+
+.card-list {
+   border-block: 1px solid #33333350;
+   margin-block: 10px;
+   padding: 1rem;
+   cursor: pointer;
+}
+
+/* Button */
+button {
+   background-color: var(--active);
+   padding: 10px;
+   color: white;
+   transition: transform .5s;
+   font-size: 1.25rem;
+   font-weight: 600;
+   border: 0;
+   border-radius: var(--border-radius);
+}
+
+button:hover {
+   transform: scale(1.1);
+}
+
+/* Modal */
+dialog {
+   padding: 0;
+   border-radius: var(--border-radius);
+   border: 0;
+   box-shadow: 0 0 5px 0 #00000080;
+   overflow: hidden;
+   text-align: center;
+}
+
+.modal-main {
+   width: 600px;
+}
+
+.modal::backdrop {
+   background: #00000080;
+   backdrop-filter: blur(3px);
+}
+
+.modal-background {
+   position: fixed;
+   top: 0;
+   left: 0;
+   height: 100%;
+   width: 100%;
+   z-index: -10;
+}
+
+.modal-header {
+   display: flex;
+   flex-direction: row;
+   padding: 1rem;
+   color: var(--background);
+   justify-content: space-between;
+   background-color: var(--dark-gray);
+}
+
+#search-bar {
+   width: 90%;
+   margin: 10px auto;
+   padding: 0.5rem 1rem;
+   border-radius: var(--border-radius);
+   font-size: 1.25rem;
+   border-bottom: 5px solid var(--dark-gray);
+}
+
+.modal-list {
+   overflow-y: auto;
+   height: 450px;
+   border-top: 2px solid var(--dark-gray);
+
+}
+
+::-webkit-scrollbar {
+   background: var(--dark-gray);
+   border-radius: 0 var(--border-radius) var(--border-radius) 0;
+   width: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+   background: var(--active);
+   background-repeat: repeat-y;
+   border: 3px solid transparent;
+   border-radius: 0 var(--border-radius) var(--border-radius) 0;
+   background-clip: content-box;
+}
+
+.modal-list div {
+   font-size: 1.1rem;
+   font-weight: 600;
+   border-bottom: 1px solid var(--dark-gray);
+   padding: 1rem;
+   margin-block: 1rem;
+   cursor: pointer;
+}
+
+.modal-list div:hover {
+   background-color: var(--active);
+   color: var(--background);
+}
