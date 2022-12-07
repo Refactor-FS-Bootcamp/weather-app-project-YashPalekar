@@ -1,19 +1,18 @@
-import React from "react";
-import Header from "./components/header/header";
-import Sider from "./components/sider/sider";
-import Content from "./components/content/content"
+import { BrowserRouter } from "react-router-dom";
 import "./styles.css";
+import AppRoutes from "./routes/app-routes";
+import { ApplicationContextProvider } from "./context/app-context";
 
 const App = () => {
-   return (
-      <>
-         <Sider />
-
-         <Header title="My favorite cities" />
-         
-         <Content />
-      </>
-   );
-}
+  return (
+    <div className="main-body">
+      <BrowserRouter>
+        <ApplicationContextProvider>
+          <AppRoutes />
+        </ApplicationContextProvider>
+      </BrowserRouter>
+    </div>
+  );
+};
 
 export default App;
