@@ -10,7 +10,6 @@ const FavIcon = (props) => {
 
   const toggleFavorite = (favName) => {
     const icon = document.getElementById(favName);
-    // console.log("in fav.js ", context.favoriteCities);
 
     if (context.favoriteCities.includes(favName)) {
       const index = context.favoriteCities.indexOf(favName);
@@ -22,7 +21,6 @@ const FavIcon = (props) => {
       icon.classList.add("fa-solid", "fa-yellow");
       context.setFavoriteCities([...context.favoriteCities, favName]);
     }
-    // console.log("in fav.js end", context.favoriteCities);
   };
 
   return (
@@ -31,7 +29,7 @@ const FavIcon = (props) => {
         id={props.cityName}
         onClick={() => {
           toggleFavorite(props.cityName);
-          props.handleClick();
+          if (props.handleClick) props.handleClick();
         }}
         className={`${props.customClass ?? ""} ${
           context.favoriteCities.includes(props.cityName)

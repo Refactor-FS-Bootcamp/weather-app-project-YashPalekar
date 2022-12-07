@@ -11,12 +11,17 @@ const Home = () => {
   const [favCities, setFavCities] = useState(
     CityList.filter((e) => context.favoriteCities.includes(e.name))
   );
-
   useEffect(() => {
     setFavCities(
       CityList.filter((e) => context.favoriteCities.includes(e.name))
     );
   }, [context.favoriteCities]);
+
+  const refresh = () => {
+    setFavCities(
+      CityList.filter((e) => context.favoriteCities.includes(e.name))
+    );
+  };
   return (
     <>
       <div className="wrapper-column">
@@ -37,15 +42,9 @@ const Home = () => {
                     <p>{e.desc}</p>
                   </div>
                   <FavIcon
-                    handleClick={
-                      () =>
-                        setFavCities(
-                          CityList.filter((e) =>
-                            context.favoriteCities.includes(e.name)
-                          )
-                        )
-                      // alert("0")
-                    }
+                    handleClick={() => {
+                      refresh();
+                    }}
                     cardId={e.name}
                     customClass="fav-btn fa-solid fa-yellow"
                     cityName={e.name}
